@@ -1,4 +1,4 @@
-name: Scrape latest deals
+name: Scrape latest data
 
 on:
   push:
@@ -17,8 +17,7 @@ jobs:
         curl -s "https://www.cheapshark.com/api/1.0/deals" > deals.json
     - name: Fetch latest wishlist data
       run: |-
-        curl -s "https://store.steampowered.com/wishlist/id/jmperafan/wishlistdata/
-" > wishlist.json
+        curl -s "https://store.steampowered.com/wishlist/id/jmperafan/wishlistdata" > wishlist.json
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
