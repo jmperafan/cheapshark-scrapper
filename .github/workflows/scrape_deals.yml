@@ -18,12 +18,6 @@ jobs:
     - name: Fetch latest wishlist data
       run: |-
         curl -s "https://store.steampowered.com/wishlist/id/jmperafan/wishlistdata" > wishlist.json
-    - name: Find deals for games in my wishlist
-      run: |-
-        wishlist=$(curl -s "https://store.steampowered.com/wishlist/id/jmperafan/wishlistdata" | jq keys | sed 's/"//g')
-        for game_id in ${wishlist[@]}; do
-          curl "https://www.cheapshark.com/api/1.0/games?steamAppID=${game_id}" >> wishlist_promotions.json
-        done
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
