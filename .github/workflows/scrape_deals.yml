@@ -20,7 +20,7 @@ jobs:
         curl -s "https://store.steampowered.com/wishlist/id/jmperafan/wishlistdata" > wishlist.json
     - name: Find deals for games in my wishlist
       run: |-
-        wishlist=$(curl -s "https://store.steampowered.com/wishlist/id/jmperafan/wishlistdata" | jq 'keys')
+        wishlist=$(curl -s "https://store.steampowered.com/wishlist/id/jmperafan/wishlistdata" | jq keys | sed 's/"//g')
         for game_id in ${wishlist[@]}; do
           curl "https://www.cheapshark.com/api/1.0/games?steamAppID=${game_id}" >> wishlist_promotions.json
         done
