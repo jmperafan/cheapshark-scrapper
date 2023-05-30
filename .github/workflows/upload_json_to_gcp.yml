@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@main
+      uses: google-github-actions/setup-gcloud@v1
       with:
         version: '341.0.0'
         project_id: juanalytics
