@@ -1,0 +1,24 @@
+name: Upload to Google Cloud Storage
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        version: '341.0.0'
+        project_id: juanalytics
+        service_account_key: ${{ secrets.GCP_BUCKET }}
+
+    - name: Upload to Google Cloud Storage
+      run: |
+        gsutil cp -r deals.json gs://cheapshark
