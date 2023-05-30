@@ -21,4 +21,4 @@ jobs:
 
     - name: Upload to Google Cloud Storage
       run: |
-        gsutil cp -r ./data/deals.json gs://cheapshark
+        gsutil cp -r data/deals.json gs://cheapshark
