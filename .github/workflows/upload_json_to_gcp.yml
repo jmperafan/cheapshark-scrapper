@@ -1,25 +1,25 @@
-name: Upload to Google Cloud Storage
-on:
-  push:
-    branches:
-      - main
+# name: Upload to Google Cloud Storage
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  upload:
-    runs-on: ubuntu-latest
+# jobs:
+#   upload:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v2
 
-    - id: 'auth'
-      name: 'Authenticate to Google Cloud'
-      uses: 'google-github-actions/auth@v1'
-      with:
-        credentials_json: '${{ secrets.GCP_BUCKET }}'
+#     - id: 'auth'
+#       name: 'Authenticate to Google Cloud'
+#       uses: 'google-github-actions/auth@v1'
+#       with:
+#         credentials_json: '${{ secrets.GCP_BUCKET }}'
 
-    - id: 'upload-file-deals'
-      uses: 'google-github-actions/upload-cloud-storage@v1'
-      with:
-        path: 'data'
-        destination: 'cheapshark'
+#     - id: 'upload-file-deals'
+#       uses: 'google-github-actions/upload-cloud-storage@v1'
+#       with:
+#         path: 'data'
+#         destination: 'cheapshark'
